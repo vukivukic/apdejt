@@ -1,0 +1,44 @@
+<div>
+    <button id="idDodaj" mat-raised-button (click)="dodajForma()" color="primary">
+        Dodaj
+      </button>
+  
+    </div>
+  
+
+
+<div class="main">
+<table id = "idTrening" mat-table [dataSource]="trening"  class="responstable" color="primary" matSort>
+
+  
+    <ng-container matColumnDef="id">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+     <td mat-cell *matCellDef="let trening">  {{trening.id}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="nazivTreninga">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</th>
+     <td mat-cell *matCellDef="let trening"> {{trening.nazivTreninga}} </td>
+   </ng-container>
+   <ng-container matColumnDef="opisTreninga">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Opis</th>
+    <td mat-cell *matCellDef="let trening">  {{trening.opisTreninga}} </td>
+  </ng-container>
+
+
+      <!-- <button id="izmeni" color="primary" mat-raised-button (click)="openEditForm(trening)">
+        Izmeni
+      </button>&nbsp;
+      
+      <button id="obrisi" color="warn" mat-raised-button (click)="izbrisiOpremu(trening.id)">
+        Obrisi
+      </button> -->
+
+
+   
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+     
+   </table>
+  </div>

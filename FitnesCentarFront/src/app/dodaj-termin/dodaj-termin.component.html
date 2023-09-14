@@ -1,0 +1,74 @@
+<div mat-dialog-title>
+    Popunite formu
+</div>
+<form [formGroup]="fitnesForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="name">
+<div class="kolona">
+  <!-- <mat-form-field appearance="outline">
+    <mat-label id="id">ID</mat-label>
+    <input matInput formControlName="id">
+  </mat-form-field> -->
+  
+      <!-- <mat-form-field appearance="outline">
+        <mat-label id="idtipTrening">Naziv</mat-label>
+        <input matInput formControlName="tipTreninga">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label id="idInstruktor">Vrsta</mat-label>
+        <input matInput formControlName="vrsta">
+      </mat-form-field> -->
+      <form [formGroup]="fitnesForm">
+        <label for="idTipaT">Tipovi treninga</label>
+        <select formControlName="idTipaT" id="idTipaT" (change)="change()" [(ngModel)]="idTipaT">
+          
+          <option *ngFor="let t of idTipaT | keyvalue; let i = index" [value]="idTipaT[i].id">
+            {{idTipaT[i].nazivTreninga}}
+          </option>
+        
+        </select>
+  
+      </form>
+      <form [formGroup]="fitnesForm">
+        <label for="idIns">Instruktor</label>
+        <ng-multiselect-dropdown
+        [placeholder]="'Select items'"
+        [data]="idIns"
+        [(ngModel)]="selectedItems"
+        [settings]="dropdownSettings"
+      >
+      <ng-template let-item="idIns" let-index="index">
+        <input type="checkbox" [ngModel]="item.isSelected" /> <!-- Add checkbox if desired -->
+        {{idIns.imeInstruktora}} {{idIns.prezimeInstruktora}}
+      </ng-template>
+      <!-- <option *ngFor="let in of idIns; let i = index" [value]="idIns[i].id">
+       
+      </option> -->
+      </ng-multiselect-dropdown>
+        <!-- <select formControlName="idIns" id="idIns">
+          
+          <option *ngFor="let in of idIns; let i = index" [value]="idIns[i].id">
+            {{idIns[i].imeInstruktora}} {{idIns[i].prezimeInstruktora}}
+          </option>
+        </select> -->
+      
+      </form>
+      <mat-form-field appearance="outline">
+        <mat-label id="idVremeTreninga">Vreme</mat-label>
+        <input matInput formControlName="vreme">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label id="idLokacija">Lokacija</mat-label>
+        <input matInput formControlName="lokacija">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label id="idMaxBrPolaznika">Max br polaznika</mat-label>
+        <input matInput formControlName="maxBrClanova">
+      </mat-form-field>
+
+</div>
+</div>
+<div mat-dialog-actions id="idDugme">
+    <button mat-raised-button color="primary" type="button" (click)="onFormSubmit()">Save</button>
+</div>
+</form>

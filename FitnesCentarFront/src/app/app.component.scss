@@ -1,0 +1,17 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+#navigacija{
+  display: flex;
+  margin-left: 750px;
+  gap: 30px;
+}
+div a {
+  color: white !important;
+  padding: 5px;
+  text-decoration: none;
+}
+#nesto{
+  color: "primary";
+}

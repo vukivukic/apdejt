@@ -1,0 +1,81 @@
+<div mat-dialog-title>
+    Popunite formu
+</div>
+<form [formGroup]="fitnesForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="name">
+<div class="kolona">
+  
+  <!-- <div class="form-group">
+  <mat-form-field appearance="outline">
+    <mat-label id="id">ID</mat-label>
+    <input matInput formControlName="id">
+  </mat-form-field>
+  </div> -->
+    <mat-form-field appearance="outline">
+      <mat-label id="idIme">Ime</mat-label>
+      <input matInput formControlName="imeClana" [ngClass]="{'is-invalid': submitted && fitnesForm.controls.imeClana.errors}">
+      <div *ngIf="submitted && fitnesForm.controls.imeClana.errors" class="text-danger">
+        Ime ne sme da sadrzi brojeve
+      </div>
+    </mat-form-field>
+
+          <!-- <span id="span1"style="color: rgb(240, 108, 108)" *ngIf="imeClana && imeClana.invalid">Ime ne sme da sadrzi brojeve</span> -->
+
+      <mat-form-field appearance="outline">
+        <mat-label id="idPrezime">Prezime</mat-label>
+        <input matInput formControlName="prezimeClana" [ngClass]="{'is-invalid': submitted && fitnesForm.controls.prezimeClana.errors}">
+        <div *ngIf="submitted && fitnesForm.controls.prezimeClana.errors" class="text-danger">
+          Prezime ne sme da sadrzi brojeve
+        </div>
+      </mat-form-field>
+
+    <!-- <div *ngIf="submitted && fitnesForm.controls.prezimeClana.errors" class="text-danger">
+      Prezime ne sme da sadrzi brojeve
+    </div> -->
+
+        
+
+
+      <mat-form-field appearance="outline">
+        <mat-label id="idEmail">Email</mat-label>
+        <input matInput formControlName="mailClana" [ngClass]="{'is-invalid': submitted && fitnesForm.controls.mailClana.errors}">
+        <div *ngIf="submitted && fitnesForm.controls.mailClana.errors" class="text-danger">
+          Neispravam mail
+        </div>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label id="idAdresa">Adresa</mat-label>
+        <input matInput formControlName="adresaClana" [ngClass]="{'is-invalid': submitted && fitnesForm.controls.adresaClana.errors}">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label id="idBrTelefona">brTelefona</mat-label>
+        <input matInput formControlName="telefonClan" [ngClass]="{'is-invalid': submitted && fitnesForm.controls.telefonClan.errors}">
+        <div *ngIf="submitted && fitnesForm.controls.telefonClan.errors" class="text-danger">
+          Telefon ne sme da sadrzi slova
+        </div>
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="outline">
+        <mat-label id="idisDisabled">idisDisabled</mat-label>
+        <input matInput formControlName="isDisabled">
+      </mat-form-field> -->
+
+      <!-- <mat-slide-toggle id="idisDisabled">isDisabled</mat-slide-toggle> -->
+
+
+</div>
+<!-- <div class="rbtn">
+    <mat-radio-group aria-label="Select an option" formControlName="radiobtn">
+        <mat-radio-button value="korisnik">Korisnik</mat-radio-button>
+        <mat-radio-button value="instruktor">Instruktor</mat-radio-button>
+      </mat-radio-group>
+</div> -->
+</div>
+<div mat-dialog-actions id="idDugme">
+    <button mat-raised-button color="primary" type="button" (click)="onFormSubmit()">{{data ? 'Update' : 'Save'}}</button>
+</div>
+</form>

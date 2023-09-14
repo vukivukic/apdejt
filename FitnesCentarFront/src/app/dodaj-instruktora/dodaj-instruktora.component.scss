@@ -1,0 +1,16 @@
+.kolona{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.name{
+    padding-top: 10px;
+    width: 400px;
+}
+#idDugme{
+    display: flex;
+    justify-content: center;
+}
+.text-danger{
+    color: rgb(238, 96, 96);
+}

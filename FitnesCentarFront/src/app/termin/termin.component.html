@@ -1,0 +1,49 @@
+<div>
+    <button id="idDodaj" mat-raised-button (click)="dodajForma()" color="primary">
+        Dodaj
+      </button>
+  
+    </div>
+  
+
+
+<div class="main">
+<table id = "idTermin" mat-table [dataSource]="termin"  class="responstable" color="primary" matSort>
+
+  
+    <ng-container matColumnDef="id">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+     <td mat-cell *matCellDef="let termin">  {{termin.id}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="tipTreninga">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>Tip Treninga</th>
+     <td mat-cell *matCellDef="let termin"> {{termin.naziv}} </td>
+   </ng-container>
+   <ng-container matColumnDef="Instruktor">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Instruktor</th>
+    <td mat-cell *matCellDef="let termin">  {{termin.Instruktor.ime}} {{termin.Instruktor.prezime}}</td>
+  </ng-container>
+  <ng-container matColumnDef="lokacija">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Lokacija</th>
+    <td mat-cell *matCellDef="let termin">  {{termin.lokacija}} </td>
+  </ng-container>
+
+   <ng-container matColumnDef="vreme">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>Vreme</th>
+     <td mat-cell *matCellDef="let termin"> {{termin.vreme}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="Maxbrpolaznika">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>MaxBrojPolaznika</th>
+    <td mat-cell *matCellDef="let termin"> {{termin.Maxbrpolaznika}} </td>
+  </ng-container>
+
+
+   
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+     
+   </table>
+  </div>

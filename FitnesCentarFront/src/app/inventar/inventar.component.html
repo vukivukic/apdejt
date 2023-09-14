@@ -1,0 +1,59 @@
+<div>
+    <button id="idDodaj" mat-raised-button (click)="dodajForma()" color="primary">
+        Dodaj
+      </button>
+  
+    </div>
+  
+
+
+<div class="main">
+<table id = "inventar" mat-table [dataSource]="oprema"  class="responstable" color="primary" matSort>
+
+  
+    <ng-container matColumnDef="id">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+     <td mat-cell *matCellDef="let inventar">  {{inventar.id}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="naziv">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</th>
+     <td mat-cell *matCellDef="let inventar"> {{inventar.naziv}} </td>
+   </ng-container>
+   <ng-container matColumnDef="vrsta">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Vrsta</th>
+    <td mat-cell *matCellDef="let inventar">  {{inventar.vrsta}} </td>
+  </ng-container>
+  <ng-container matColumnDef="opis">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Opis</th>
+    <td mat-cell *matCellDef="let inventar">  {{inventar.opis}} </td>
+  </ng-container>
+
+   <ng-container matColumnDef="kolicina">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>Kolicina</th>
+     <td mat-cell *matCellDef="let inventar"> {{inventar.kolicina}} </td>
+   </ng-container>
+   <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Obrisi</th>
+     <td mat-cell *matCellDef="let inventar"> {{inventar.action}}
+
+      <button id="izmeni" color="primary" mat-raised-button (click)="openEditForm(inventar)">
+        Izmeni
+      </button>&nbsp;
+      
+      <button id="obrisi" color="warn" mat-raised-button (click)="izbrisiOpremu(inventar.id)">
+        Obrisi
+      </button>
+
+    </td>  
+
+
+  </ng-container> 
+
+   
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+     
+   </table>
+  </div>

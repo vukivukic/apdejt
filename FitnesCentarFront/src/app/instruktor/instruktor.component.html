@@ -1,0 +1,64 @@
+<div>
+    <button id="idDodaj" mat-raised-button (click)="dodajForma()" color="primary">
+        Dodaj
+      </button>
+  
+    </div>
+  
+
+
+<div class="main">
+  <mat-form-field>
+    <input matInput type="text" name="search" placeholder="Filter" [(ngModel)]="imeInstruktora" [(ngModel)]="prezimeInstruktora" (input)="Search()">
+  </mat-form-field>
+  <div class="tabela">
+<table id = "instruktor" mat-table [dataSource]="instruktori"  class="responstable" color="primary" matSort>
+
+  
+    <ng-container matColumnDef="id">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+     <td mat-cell *matCellDef="let instruktor">  {{instruktor.id}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef="imeInstruktora">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime</th>
+     <td mat-cell *matCellDef="let instruktor"> {{instruktor.imeInstruktora}} </td>
+   </ng-container>
+   <ng-container matColumnDef="prezimeInstruktora">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Prezime</th>
+    <td mat-cell *matCellDef="let instruktor">  {{instruktor.prezimeInstruktora}} </td>
+  </ng-container>
+  <ng-container matColumnDef="mailInstruktora">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+    <td mat-cell *matCellDef="let instruktor">  {{instruktor.mailInstruktora}} </td>
+  </ng-container>
+
+   <ng-container matColumnDef="telefonInstruktora">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefon</th>
+     <td mat-cell *matCellDef="let instruktor"> {{instruktor.telefonInstruktora}} </td>
+   </ng-container>
+   <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Obrisi</th>
+     <td mat-cell *matCellDef="let instruktor"> {{instruktor.action}}
+
+      <button id="izmeni" color="primary" mat-raised-button (click)="openEditForm(instruktor)">
+        Izmeni
+      </button>&nbsp;
+      
+      <button id="obrisi" color="warn" mat-raised-button (click)="izbrisiOpremu(instruktor.id)">
+        Obrisi
+      </button>
+
+    </td>  
+
+
+  </ng-container> 
+
+   
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+     
+   </table>
+  </div>
+  </div>

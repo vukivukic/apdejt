@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+    Popunite formu
+</div>
+<form [formGroup]="fitnesForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="name">
+<div class="kolona">
+  <!-- <mat-form-field appearance="outline">
+    <mat-label id="id">ID</mat-label>
+    <input matInput formControlName="id">
+  </mat-form-field> -->
+  
+      <mat-form-field appearance="outline">
+        <mat-label id="idNaziv">Naziv</mat-label>
+        <input matInput formControlName="naziv">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label id="idVrsta">Vrsta</mat-label>
+        <input matInput formControlName="vrsta">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label id="idOpis">Opis</mat-label>
+        <input matInput formControlName="opis">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label id="idKolicina">Kolicina</mat-label>
+        <input matInput formControlName="kolicina">
+      </mat-form-field>
+</div>
+</div>
+<div mat-dialog-actions id="idDugme">
+    <button mat-raised-button color="primary" type="button" (click)="onFormSubmit()">Save</button>
+</div>
+</form>

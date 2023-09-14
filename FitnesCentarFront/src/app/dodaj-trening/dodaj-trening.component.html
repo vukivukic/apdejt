@@ -1,0 +1,32 @@
+<div mat-dialog-title>
+    Popunite formu
+</div>
+<form [formGroup]="fitnesForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="name">
+<div class="kolona">
+  
+  <!-- <div class="form-group">
+  <mat-form-field appearance="outline">
+    <mat-label id="id">ID</mat-label>
+    <input matInput formControlName="id">
+  </mat-form-field>
+  </div> -->
+    <mat-form-field appearance="outline">
+      <mat-label id="idNaziv">Naziv</mat-label>
+      <input matInput formControlName="nazivTreninga">
+    </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label id="idOpis">Opis</mat-label>
+        <input matInput formControlName="opisTreninga" [ngClass]="{'is-invalid': submitted && fitnesForm.controls.opisTreninga.errors}">
+        <div *ngIf="submitted && fitnesForm.controls.opisTreninga.errors" class="text-danger">
+        </div>
+      </mat-form-field>
+
+</div>
+
+</div>
+<div mat-dialog-actions id="idDugme">
+    <button mat-raised-button color="primary" type="button" (click)="onFormSubmit()">{{data ? 'Update' : 'Save'}}</button>
+</div>
+</form>
